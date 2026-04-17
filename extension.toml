@@ -8,4 +8,4 @@ repository = "https://github.com/cunninghamd/zed-c-sharp"
 
 [grammars.c_sharp]
 repository = "https://github.com/tree-sitter/tree-sitter-c-sharp"
-commit = "dd5e59721a5f8dae34604060833902b882023aaf"
+commit = "cac6d5fb595f5811a076336682d5d595ac1c9e85"
