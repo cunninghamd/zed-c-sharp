@@ -8,7 +8,6 @@
 (enum_declaration name: (identifier) @type)
 (struct_declaration (identifier) @type)
 (record_declaration (identifier) @type)
-(record_struct_declaration (identifier) @type)
 (namespace_declaration name: (identifier) @type)
 
 (constructor_declaration name: (identifier) @constructor)
@@ -34,13 +33,10 @@
   (character_literal)
   (string_literal)
   (verbatim_string_literal)
-  (interpolated_string_text)
-  (interpolated_verbatim_string_text)
+  (raw_string_literal)
+  (interpolated_string_expression)
   "\""
-  "$\""
-  "@$\""
-  "$@\""
- ] @string
+] @string
 
 [
   (boolean_literal)
@@ -107,11 +103,10 @@
   "]"
   "{"
   "}"
-]  @punctuation.bracket
+] @punctuation.bracket
 
 ;; Keywords
 (modifier) @keyword
-(this_expression) @keyword
 (escape_sequence) @keyword
 
 [
@@ -154,6 +149,7 @@
   "static"
   "struct"
   "switch"
+  "this"
   "throw"
   "try"
   "typeof"
@@ -178,19 +174,17 @@
   "let"
 ] @keyword
 
-
 ;; Linq
 (from_clause (identifier) @variable)
 (group_clause (identifier) @variable)
 (order_by_clause (identifier) @variable)
 (join_clause (identifier) @variable)
 (select_clause (identifier) @variable)
-(query_continuation (identifier) @variable) @keyword
 
 ;; Record
 (with_expression
-  (with_initializer_expression
-    (simple_assignment_expression
+  (with_initializer
+    (assignment_expression
       (identifier) @variable)))
 
 ;; Exprs
@@ -222,11 +216,10 @@
 (parameter
   name: (identifier) @variable)
 (parameter (identifier) @variable)
-(parameter_modifier) @keyword
 
 ;; Variable declarations
 (variable_declarator (identifier) @variable)
-(for_each_statement left: (identifier) @variable)
+(foreach_statement left: (identifier) @variable)
 (catch_declaration (_) (identifier) @variable)
 
 ;; Return
