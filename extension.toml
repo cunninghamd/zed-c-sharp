@@ -2,7 +2,7 @@ id = "csharp-syntax"
 name = "C# Syntax Highlighting"
 version = "1.0.0"
 schema_version = 1
-authors = ["Derek Cunningham"]
+authors = ["Derek Cunningham <cunninghamd@nosleep.ca>"]
 description = "C# syntax highlighting for Zed"
 repository = "https://github.com/cunninghamd/zed-c-sharp"
 
